@@ -11,5 +11,7 @@ namespace EMSWebApp.Models
         public string Phone { get; set; }
         public department department { get; set; }
 
+        public Employee() { }
+
     }
 }
