@@ -9,6 +9,7 @@ namespace EMSWebApp.Models
         public DateTime dob { get; set; }
         public string email { get; set; }
         public string Phone { get; set; }
+        public int departmentId { get; set; }
         public department department { get; set; }
 
         public Employee() { }
