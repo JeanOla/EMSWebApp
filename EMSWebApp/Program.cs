@@ -1,7 +1,15 @@
+using EMSWebApp.Data;
+using EMSWebApp.Repository;
+using EMSWebApp.Repository.msSQL;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<EmsDbContext>();
+builder.Services.AddScoped<EmsDbContext, EmsDbContext>();
+builder.Services.AddScoped<IEMSRepository, EMSDBRepository>();
+builder.Services.AddScoped<IEmpRepository, EmpRepository>();
 
 var app = builder.Build();
 

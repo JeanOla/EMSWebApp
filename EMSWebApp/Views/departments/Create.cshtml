@@ -1,0 +1,16 @@
+﻿@model department
+
+
+<h1> Create Department</h1>
+
+<!-- Model oninvalid errors to be displayed --> 
+
+<form method="post" asp-action="Create" asp-controller="departments" > <!-- need of form element in HTML 5-->
+   <div asp-validation-summary="All" class="text-danger" ></div>
+    <div>
+        <label asp-for="Name"></label>
+        <input asp-for="Name" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <button type="submit">Send</button>
+</form>

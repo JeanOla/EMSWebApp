@@ -12,7 +12,15 @@ namespace EMSWebApp.Models
         public int departmentId { get; set; }
         public department department { get; set; }
 
-        public Employee() { }
-
+       public Employee() { }
+       public Employee(int id, string name, DateTime dob, string email, string phone, int departmentId)
+        {
+            this.Id = id;
+            this.Name = name;
+            this.dob = dob;
+            this.email = email;
+            this.Phone = phone;
+            this.departmentId = departmentId;
+        }
     }
 }

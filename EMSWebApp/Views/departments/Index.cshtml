@@ -1,0 +1,37 @@
+﻿@*@model IEnumerable<EMSWebApp.Models.department>
+
+@{
+    ViewData["Title"] = "Index";
+}*@
+
+@model List<department>
+
+<H1>Department List</H1>
+
+<a asp-action="Create" asp-controller="departments">Add Department</a>
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Department Name</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var dept in Model)
+        {
+            <tr>
+                <th scope="row">@dept.Id</th>
+                <td>@dept.Name</td>
+                <td><a asp-controller="departments" asp-action="Details" asp-route-deptId="@dept.Id">View</a></td>
+                <td><a asp-controller="departments" asp-action="edit" asp-route-deptId="@dept.Id">Edit</a></td>
+                <td><a asp-controller="departments" asp-action="Delete" asp-route-deptId="@dept.Id">Delete</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

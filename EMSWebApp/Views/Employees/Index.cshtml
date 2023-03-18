@@ -1,0 +1,40 @@
+﻿@model List<Employee>
+
+
+<H1>Employee List</H1>
+
+<a asp-action="Create" asp-controller="Employees">Add Employee</a>
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Department Name</th>
+            <th scope="col">Date of Birth</th>
+            <th scope="col">email</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Department</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var emp in Model)
+        {
+            <tr>
+                <th scope="row">@emp.Id</th>
+                <td>@emp.Name</td>
+                <td>@emp.dob</td>
+                <td>@emp.email</td>
+                <td>@emp.Phone</td>
+                <td>@emp.department.Name</td>
+                <td><a asp-controller="Employees" asp-action="Details" asp-route-Id="@emp.Id">View</a></td>
+                <td><a asp-controller="Employees" asp-action="edit" asp-route-Id="@emp.Id">Edit</a></td>
+                <td><a asp-controller="Employees" asp-action="Delete" asp-route-Id="@emp.Id">Delete</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
