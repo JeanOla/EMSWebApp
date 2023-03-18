@@ -39,7 +39,7 @@ namespace EMSWebApp.Controllers
             return View(model);
         }
         [HttpPost]
-        public IActionResult Create(Employee newEmployee) // model binded this where the views data is accepted 
+        public IActionResult Create(Employee newEmployee) 
         {
             var Emp = _repo.AddEmployee(newEmployee);
             return RedirectToAction("index");
@@ -54,6 +54,7 @@ namespace EMSWebApp.Controllers
         [HttpGet]
         public IActionResult edit(int Id)
         {
+            ViewBag.options = new SelectList(_repo.getOptions(), "Id", "Name");
             var oldEmp = _repo.GetEmployeeById(Id);
             return View(oldEmp);
         }
