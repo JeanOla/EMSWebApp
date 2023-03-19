@@ -20,9 +20,11 @@ namespace EMSWebApp.Repository.msSQL
         }
         public department Adddepartment(department newDept)
         {
+
             _dbContext.Add(newDept);
             _dbContext.SaveChanges();
             return newDept;
+
         }
        
 

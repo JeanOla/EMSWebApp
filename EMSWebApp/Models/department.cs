@@ -1,4 +1,5 @@
-﻿using Microsoft.Build.Framework;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using Microsoft.Build.Framework;
 
 namespace EMSWebApp.Models
 {
@@ -7,7 +8,7 @@ namespace EMSWebApp.Models
         public int Id { get; set; }
         [Required]
         public string Name { get; set; }
-
+        [ValidateNever]
         public ICollection<Employee> Employees { get; set; }
 
         public department() { } 
@@ -17,6 +18,4 @@ namespace EMSWebApp.Models
             this.Name = name;
         }
     }
-
-
 }

@@ -39,10 +39,12 @@ namespace EMSWebApp.Controllers
             return View(model);
         }
         [HttpPost]
-        public IActionResult Create(Employee newEmployee) 
+        public IActionResult Create(Employee newEmployee)
         {
-            var Emp = _repo.AddEmployee(newEmployee);
-            return RedirectToAction("index");
+            
+                var Emp = _repo.AddEmployee(newEmployee);
+                return RedirectToAction("index");
+            
         }
 
         public IActionResult Delete(int Id)
@@ -63,6 +65,11 @@ namespace EMSWebApp.Controllers
         {
             var employee = _repo.editEmp(emp.Id, emp);
             return RedirectToAction("index");
+        }
+        public IActionResult Details(int Id)
+        {
+            var emp = _repo.GetEmployeeById(Id);
+            return View(emp);
         }
 
 

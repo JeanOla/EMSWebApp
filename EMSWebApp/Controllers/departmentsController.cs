@@ -32,15 +32,15 @@ namespace EMSWebApp.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Create(department newDept) // model binded this where the views data is accepted 
+        public IActionResult Create(department newDept)
         {
-            //if (ModelState.IsValid)//eto tinanggal ko
-           // {
-                var todo = _repo.Adddepartment(newDept);
+            if (ModelState.IsValid)
+            {
+                var emp = _repo.Adddepartment(newDept);
                 return RedirectToAction("index");
-           // }
+            }
            ViewData["Message"] = "Data is not valid to create the Department";
-          //  return View();
+            return View();
         }
 
         public IActionResult Delete(int deptId)

@@ -1,14 +1,20 @@
-﻿using System.Numerics;
+﻿using Microsoft.Build.Framework;
+using System.Numerics;
 
 namespace EMSWebApp.Models
 {
     public class Employee
     {
         public int Id { get; set; }
+        [Required]
         public string Name { get; set; }
+        [Required]
         public DateTime dob { get; set; }
+        [Required]
         public string email { get; set; }
+        [Required]
         public string Phone { get; set; }
+        [Required]
         public int departmentId { get; set; }
         public department department { get; set; }
 
