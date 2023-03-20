@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,12 +8,16 @@ using Microsoft.EntityFrameworkCore;
 using EMSWebApp.Data;
 using EMSWebApp.Models;
 using EMSWebApp.Repository;
+using EMSWebApp.Repository.InMemory;
 
 namespace EMSWebApp.Controllers
 {
     public class EmployeesController : Controller
     {
         IEmpRepository _repo;
+        static List<Employee> employees = new List<Employee>();
+
+        static List<department> department = new List<department>();
 
         // tightly coupled object 
         //ITodoRepository _repo = new InMemoryRepository();
@@ -24,12 +28,23 @@ namespace EMSWebApp.Controllers
         public EmployeesController(IEmpRepository repo)
         {
             _repo = repo;
-            
         }
         public IActionResult index()
-        {
-            var emp = _repo.index();
-            return View(emp);
+        {   //db
+             var emp = _repo.index();
+
+             return View(emp);
+
+            //inmemory
+            //DeptInMemoryRepository deptInMemoryRepository = new DeptInMemoryRepository();
+            //EmpImMemoryRepository empImMemoryRepository = new EmpImMemoryRepository();
+
+            //var list = deptInMemoryRepository.index();
+
+            //return
+           
+
+           
         }
         [HttpGet]
         public IActionResult Create()

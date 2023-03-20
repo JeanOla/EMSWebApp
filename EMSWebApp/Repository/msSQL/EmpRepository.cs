@@ -26,7 +26,7 @@ namespace EMSWebApp.Repository.msSQL
 
         public Employee GetEmployeeById(int Id)
         {
-            return _dbContext.Employees.AsNoTracking().ToList().FirstOrDefault(emp => emp.Id == Id);
+            return _dbContext.Employees.Include(e => e.department).AsNoTracking().ToList().FirstOrDefault(emp => emp.Id == Id);
         }
 
         public Employee AddEmployee(Employee newEmployee)

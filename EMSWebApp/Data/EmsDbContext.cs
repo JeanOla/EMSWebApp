@@ -15,6 +15,7 @@ namespace EMSWebApp.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.SeedDafaultData();
             modelBuilder.Entity<Employee>()
            .HasOne<department>(s => s.department)
            .WithMany(g => g.Employees)

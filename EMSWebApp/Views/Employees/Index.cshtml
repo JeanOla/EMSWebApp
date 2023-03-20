@@ -28,7 +28,7 @@
                 <td>@emp.dob</td>
                 <td>@emp.email</td>
                 <td>@emp.Phone</td>
-                <td>@emp.department.Name</td>
+                <td>@Html.DisplayFor(modelItem => emp.department.Name)</td>
                 <td><a asp-controller="Employees" asp-action="Details" asp-route-Id="@emp.Id">View</a></td>
                 <td><a asp-controller="Employees" asp-action="edit" asp-route-Id="@emp.Id">Edit</a></td>
                 <td><a asp-controller="Employees" asp-action="Delete" asp-route-Id="@emp.Id">Delete</a></td>
